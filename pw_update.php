@@ -7,12 +7,11 @@ $user_id = $_SESSION['user_id'];
 $curpass = $_POST['currentpw'];
 $newpass = $_POST['newpw'];
 $confnewpw = $_POST['confnewpw'];
-$salt = '4Mma0wd2To3fi346j';
-$hash_pw = get_hash_pw($curpass, $salt);
-$pw_query = "select hash_password from users where hash_password = '$hash_pw'";
+$pw_query = "select * from users where id = '$user_id'";
 $pw_query_result = pg_query($db, $pw_query);
-$user_pass = pg_result($pw_query_result, 0);
-
+$salt = pg_result($pw_query_result, 3);
+$user_pass = pg_result($pw_query_result, 4);
+$hash_pw = get_hash_pw($curpass, $salt);
 
 if($hash_pw != $user_pass){
     header("Location: account_detail.php?status=1");
