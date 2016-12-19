@@ -1,7 +1,11 @@
 <?php
 session_start();
+if(!isset($_SESSION['user_id'])){
+    header('Location: login.php');
+}
 $user_id = $_SESSION['user_id'];
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -19,17 +23,34 @@ $user_id = $_SESSION['user_id'];
     </head>
 
     <body>
-        <div class="page-header">
-            <h1>Welcome! <small>...press buttons and stuff</small></h1>
+        <nav class="navbar navbar-default navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.php">Stub</a>
+                    <ul class="nav navbar-nav">
+                        <li role="presentation" class="active"><a href="index.php">Home</a></li>
+                        <li class="disabled" role="presentation"><a href="#">Link</a></li>
+                        <li role="presentation"><a href="account_detail.php">Account Settings</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="jumbotron">
+            <div class="container">
+                <h1>Welcome! </br><small>...press buttons and stuff</small></h1>
+            </div>
         </div>
 
-        <div id=nav_tabs>
-            <ul class="nav nav-tabs">
-                <li role="presentation" class="active"><a href="index.php">Home</a></li>
-                <li class="disabled" role="presentation"><a href="#">Link</a></li>
-                <li role="presentation"><a href="account_detail.php">Account Settings</a></li>
-            </ul>
+        <div class="col-md-9">
+            <h1 class="page_header" style="border-bottom: 1px solid #eee; line-height: inherit;">README</h1>
+            <div class='readme'>
+                <p>This repo implements a login page & password reset with php.  The "Account Setting" link in the navbar is also functional.
+            Users will be able to change their own passwords (provided their current password matches the user's password in a PostgreSQL database
+            on the backend, and their new password choice meets certain criteria).</p>
+            </div>
         </div>
+        <div class="col-md-3"></div>
 
 
 
