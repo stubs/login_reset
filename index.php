@@ -28,8 +28,8 @@ $user_id = $_SESSION['user_id'];
                 <div class="navbar-header">
                     <a class="navbar-brand" href="index.php">Stub</a>
                     <ul class="nav navbar-nav">
-                        <li role="presentation" class="active"><a href="index.php">Home</a></li>
-                        <li class="disabled" role="presentation"><a href="#">Link</a></li>
+                        <li role="presentation"><a href="index.php">Home</a></li>
+                        <li role="presentation"><a href="progress_bar.php">Progress Bar</a></li>
                         <li role="presentation"><a href="account_detail.php">Account Settings</a></li>
                     </ul>
                 </div>
